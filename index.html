@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Puncture Help</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="brand">🛞 <span>Puncture Help</span></div>
+  <button id="resetBtn" class="ghost small">Reset Demo</button>
+</header>
+
+<main>
+  <section id="home" class="screen active">
+    <div class="hero">
+      <div class="hero-icon">🛞</div>
+      <h1>Roadside tyre help,<br><span>when you need it.</span></h1>
+      <p>Find a nearby mechanic or register your tyre repair service.</p>
+      <div class="role-grid">
+        <button class="role-card" data-screen="customer">
+          <span>🚗</span><b>I need a repair</b><small>Find a mechanic</small>
+        </button>
+        <button class="role-card" data-screen="mechanic">
+          <span>🔧</span><b>I am a mechanic</b><small>Register & receive jobs</small>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section id="customer" class="screen">
+    <button class="back" data-screen="home">← Home</button>
+    <div class="section-head">
+      <h2>Need a puncture repair?</h2>
+      <p>Tell us where you are and we'll show available mechanics.</p>
+    </div>
+    <button id="locationBtn" class="location-btn">📍 Use my location</button>
+    <div id="locationStatus" class="status">Location not selected</div>
+
+    <div class="request-box">
+      <label>Vehicle</label>
+      <div class="vehicle-grid">
+        <button class="vehicle selected" data-vehicle="Bike">🏍️ Bike</button>
+        <button class="vehicle" data-vehicle="Car">🚗 Car</button>
+        <button class="vehicle" data-vehicle="Auto">🛺 Auto</button>
+      </div>
+      <label>Problem</label>
+      <select id="problem">
+        <option>Tyre puncture</option>
+        <option>Flat tyre</option>
+        <option>Tyre replacement</option>
+        <option>Other roadside help</option>
+      </select>
+      <button id="findBtn" class="primary">Find Mechanics</button>
+    </div>
+
+    <div id="mechanicResults"></div>
+    <div id="customerRequest"></div>
+  </section>
+
+  <section id="mechanic" class="screen">
+    <button class="back" data-screen="home">← Home</button>
+    <div class="section-head">
+      <h2>Mechanic</h2>
+      <p>Register your service and receive nearby requests.</p>
+    </div>
+
+    <div id="mechanicDashboard"></div>
+
+    <div id="registerBox" class="card">
+      <h3>🔧 Register your service</h3>
+      <label>Shop / Mechanic name</label>
+      <input id="mName" placeholder="e.g. Ravi Tyre Works">
+      <label>Mobile number</label>
+      <input id="mPhone" type="tel" placeholder="e.g. 9876543210">
+      <label>Service area</label>
+      <input id="mArea" placeholder="e.g. Main Road">
+      <label>Services</label>
+      <div class="checks">
+        <label><input type="checkbox" value="Puncture repair" checked> Puncture repair</label>
+        <label><input type="checkbox" value="Tyre replacement"> Tyre replacement</label>
+        <label><input type="checkbox" value="Jump start"> Jump start</label>
+      </div>
+      <button id="registerBtn" class="primary">Register Mechanic</button>
+    </div>
+
+    <div id="requests"></div>
+  </section>
+</main>
+
+<nav class="bottom-nav">
+  <button data-screen="home">🏠<span>Home</span></button>
+  <button data-screen="customer">🚗<span>Customer</span></button>
+  <button data-screen="mechanic">🔧<span>Mechanic</span></button>
+</nav>
+
+<script src="script.js"></script>
+</body>
+</html>
